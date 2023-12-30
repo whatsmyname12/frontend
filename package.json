@@ -1,4 +1,6 @@
 {
   "scripts": {
-    "start": "echo 'No build step required.'"
-  }
+    "start": "echo 'No '"
+  },
+  // ...
+}
